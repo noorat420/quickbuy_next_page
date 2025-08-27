@@ -1,12 +1,12 @@
 'use client'
 import Link from "next/link";
 import styles from "../styles/navbar.module.css";
-
+import { useSelector } from "react-redux";
 
 
 function Navbar() {
 
-
+const cartItems = useSelector((state) => state.cart.cartItems);
   return (
     <nav className={`${styles.navbar} navbar navbar-expand-lg sticky-top`}>
       <div className="container">
@@ -68,7 +68,7 @@ function Navbar() {
                 }`}
               >
                 <i className="bi bi-cart3 fs-5"></i>
-                <span className={styles.cartBadge}>2</span>
+                <span className={styles.cartBadge}>{cartItems.length}</span>
               </Link>
             </li>
           </ul>
